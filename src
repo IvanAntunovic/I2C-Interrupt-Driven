@@ -1,1 +1,0 @@
-Controller uses state pattern and singleton pattern, FreeRTOS is used for synchronizing tasks.
