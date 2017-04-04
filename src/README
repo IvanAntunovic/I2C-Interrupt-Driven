@@ -1,0 +1,4 @@
+
+I2C Controller uses interrupts for I/O communication,
+it is implemented using state pattern design and singleton pattern, 
+FreeRTOS is used for task synchronization between ISR and write/read operations.
