@@ -10,18 +10,18 @@
 #define REPEATED_START	true
 
 //Codes for openPort() method
-#define PORT_OPENED_OK						0
-#define PORT_ALREADY_OPENED		           -1
-#define	PORT_OPENED_NOK					   -2
+#define PORT_OPENED_OK						 0
+#define PORT_ALREADY_OPENED		           		-1
+#define	PORT_OPENED_NOK					   	-2
 
 //Codes for setMode() method
-#define INVALID_ADDRESS					   -1
-#define	MODE_SET_OK							0
+#define INVALID_ADDRESS					   	-1
+#define	MODE_SET_OK						 0
 
 //Codes for readBytes() method
-#define BUFFER_EMPTY					   -1
-#define PORT_NOT_OPENED                    -2
-#define READ_OK							    0
+#define BUFFER_EMPTY					   	-1
+#define PORT_NOT_OPENED                    			-2
+#define READ_OK							 0
 
 
 class I2CState;
