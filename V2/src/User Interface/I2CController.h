@@ -32,14 +32,14 @@ class I2CControllerMode;
 class I2CController
 {
 	private:
-		I2CTransmitter*		i2cTransmitter;
-		I2CReceiver*		i2cReceiver;
-		CircularQueue		txQueue;
-		CircularQueue		rxQueue;
+		I2CTransmitter*			i2cTransmitter;
+		I2CReceiver*			i2cReceiver;
+		CircularQueue			txQueue;
+		CircularQueue			rxQueue;
 		I2CState*			currentState;
-		I2CControllerMode*	currentMode;
+		I2CControllerMode*		currentMode;
 		uint8_t				address;
-		int					clockFrequency;
+		int				clockFrequency;
 		bool				isRepeatedStartEnabled;
 		uint8_t				bytesToRead;
 
