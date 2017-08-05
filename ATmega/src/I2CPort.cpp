@@ -9,8 +9,6 @@
 #include "I2CPort.h"
 #include "I2CStatusCodes.h"
 
-#define F_CPU 16000000UL
-
 I2CPort* I2CPort::sInstance = 0;
 
 I2CPort::I2CPort(void)
@@ -41,7 +39,7 @@ void I2CPort::close(void)
 {
 	// Set bit rate
 	TWBR = 0;
-	// Enable TWI and interrupted
+	// Disable TWI and interrupt
 	TWCR &= ~(1 << TWIE) | ~(1 << TWEN);
 }
 
@@ -325,6 +323,5 @@ void I2CPort::interruptHandler(void)
 
 ISR (TWI_vect)
 {
-	//PORTA |= (1 << PINA0);
 	I2CPort::sInstance->interruptHandler();
 }

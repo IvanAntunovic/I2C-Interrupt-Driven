@@ -11,12 +11,16 @@
 #include <avr/interrupt.h>
 #include "CircularQueue.h"
 
-// Function declarations
-uint8_t TWITransmitData(void *const TXdata, uint8_t dataLen, uint8_t repStart);
-void TWIInit(void);
-uint8_t TWIReadData(uint8_t TWIaddr, uint8_t bytesToRead, uint8_t repStart);
-uint8_t isTWIReady(void);
 
+#if defined( __ATmega2560__ )
+	#ifndef
+		#define F_CPU 16000000UL
+	#endif
+#elif defined( __ATmega324p__)
+	#ifndef
+		#define F_CPU 1000000UL
+	#endif
+#endif
 
 extern "C" { void TWI_vect (void) __attribute__ ((signal, __INTR_ATTRS)); }
 	
@@ -44,7 +48,6 @@ class I2CPort
 		bool isReady(void);
 		
 		int8_t requestData(void);
-		
 		inline uint8_t available() { return this->rxQueue.available(); };
 		
 	private:
