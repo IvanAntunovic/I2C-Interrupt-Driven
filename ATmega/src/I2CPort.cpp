@@ -9,7 +9,7 @@
 #include "I2CPort.h"
 #include "I2CStatusCodes.h"
 
-I2CPort* I2CPort::sInstance = 0;
+I2CPort* I2CPort::sInstance = NULL;
 
 I2CPort::I2CPort(void)
 {
