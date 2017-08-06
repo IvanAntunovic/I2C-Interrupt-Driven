@@ -23,7 +23,7 @@ class CircularQueue
 		void flush(void);
 		uint8_t available(void);
 		bool isEmpty(void);
-		inline bool isFull(void) __attribute__ ((always_inline));
+		bool isFull(void);
 		int8_t enqueue(uint8_t byte);
 		int8_t dequeue(uint8_t* byte);
 };

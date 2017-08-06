@@ -12,13 +12,6 @@
 #define		NULL	0
 #endif
 
-#define I2C_PORT_OK 0
-#define I2C_PORT_NOK -1
-#define I2C_PORT_BUFFER_NULL_PTR -2
-#define I2C_PORT_BUFFER_LEN_NOK -3
-#define I2C_PORT_OFFSET_NOK -4
-#define I2C_PORT_BUSY -5
-
 // TWI bit rate
 #define TWI_FREQ 100000
 // Get TWI status

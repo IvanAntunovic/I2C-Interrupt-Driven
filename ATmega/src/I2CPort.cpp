@@ -57,15 +57,21 @@ void I2CPort::selectSlaveDevice(uint8_t deviceAddress, bool isRepeatedStart)
 	TWIInfo.repStart = this->isRepeatedStart;
 }
 
-int8_t I2CPort::requestData(void)
+int8_t I2CPort::requestData(uint8_t dataQuanitity)
 {
 	uint8_t dummyVariable;
+	
+	if (dataQuanitity < 0)
+	{
+		return I2C_PORT_NOK;
+	}
 	
 	if (!this->isReady())
 	{
 		return I2C_PORT_BUSY;
 	}
 	
+	this->bytesToRead = dataQuanitity;
 	this->loadUpQueue(&dummyVariable, 0, 0, TWI_READ);
 	this->start();
 	
@@ -175,7 +181,7 @@ int8_t I2CPort::readBytes(uint8_t* buffer, uint8_t offset, uint8_t length)
 		buffer[index] = byteReceived;
 	}
 	
-	return I2C_PORT_OK;
+	return bytesRead;
 }
 
 void I2CPort::interruptHandler(void)

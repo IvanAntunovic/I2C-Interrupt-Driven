@@ -11,6 +11,12 @@
 #include <avr/interrupt.h>
 #include "CircularQueue.h"
 
+#define I2C_PORT_OK 0
+#define I2C_PORT_NOK -1
+#define I2C_PORT_BUFFER_NULL_PTR -2
+#define I2C_PORT_BUFFER_LEN_NOK -3
+#define I2C_PORT_OFFSET_NOK -4
+#define I2C_PORT_BUSY -5
 
 #if defined( __ATmega2560__ )
 	#ifndef
@@ -47,7 +53,7 @@ class I2CPort
 		void selectSlaveDevice(uint8_t deviceAddress, bool isRepeatedStart);
 		bool isReady(void);
 		
-		int8_t requestData(void);
+		int8_t requestData(uint8_t dataQuanitity);
 		inline uint8_t available() { return this->rxQueue.available(); };
 		
 	private:
